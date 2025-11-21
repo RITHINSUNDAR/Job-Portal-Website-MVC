@@ -1,0 +1,56 @@
+﻿@model IEnumerable<JobPortalMVC.Job_Tab>
+@{
+    ViewBag.Title = "UserHome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserHome</h2>
+
+<div>
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(m=>m.Title) </th>
+
+            <th>@Html.DisplayNameFor(m => m.Description) </th>
+
+            <th>@Html.DisplayNameFor(m => m.Experiance) </th>
+
+            <th>@Html.DisplayNameFor(m => m.Skills) </th>
+            <th>@Html.DisplayNameFor(m => m.Location) </th>
+            <th>@Html.DisplayNameFor(m => m.Job_Status) </th>
+            <th>@Html.DisplayNameFor(m => m.Start_Date) </th>
+            <th>@Html.DisplayNameFor(m => m.End_Date) </th>
+            <th></th>
+        </tr>
+        @foreach(var item in Model)
+            {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Experiance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.End_Date)
+        </td>
+    </tr>
+
+            }
+    </table>
+</div>

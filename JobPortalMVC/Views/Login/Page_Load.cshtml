@@ -1,0 +1,39 @@
+﻿@model JobPortalMVC.Models.login
+@{
+    ViewBag.Title = "Page_Load";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Page_Load</h2>
+<div>
+    @using (Html.BeginForm("Login_click", "Login", FormMethod.Post))
+    {
+        <div>
+            <label>Username</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.username)
+            @Html.ValidationMessageFor(m => m.username)
+        </div>
+        <div>
+            <label>Password</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.password)
+            @Html.ValidationMessageFor(m => m.password)
+        </div>
+
+        <div>
+            <input type="submit" value="Login" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+        <div>
+           @Html.ActionLink("User Registration","Page_Load","UserReg")
+            @Html.ActionLink("Admin Registration","Page_Load","AdminReg")
+            
+        </div>
+
+
+    }
+</div>
+
