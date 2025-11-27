@@ -85,6 +85,9 @@
           <Parameter Name="start" Type="varchar" Mode="In" />
           <Parameter Name="end" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_jobsearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="qry" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="sp_LoginCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="una" Type="varchar" Mode="In" />
           <Parameter Name="pwd" Type="varchar" Mode="In" />
@@ -242,6 +245,9 @@
             <Parameter Name="start" Mode="In" Type="String" />
             <Parameter Name="end" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_jobsearch">
+            <Parameter Name="qry" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -322,6 +328,7 @@
           <FunctionImportMapping FunctionImportName="sp_LoginIdCount" FunctionName="Job_Portal_WebsiteModel.Store.sp_LoginIdCount" />
           <FunctionImportMapping FunctionImportName="sp_AdminId" FunctionName="Job_Portal_WebsiteModel.Store.sp_AdminId" />
           <FunctionImportMapping FunctionImportName="sp_JobInsert" FunctionName="Job_Portal_WebsiteModel.Store.sp_JobInsert" />
+          <FunctionImportMapping FunctionImportName="sp_jobsearch" FunctionName="Job_Portal_WebsiteModel.Store.sp_jobsearch" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

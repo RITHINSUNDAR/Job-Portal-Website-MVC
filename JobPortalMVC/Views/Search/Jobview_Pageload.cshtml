@@ -1,0 +1,87 @@
+﻿@model JobPortalMVC.Models.Jobsearch
+@{
+    ViewBag.Title = "Jobview_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Jobview_Pageload</h2>
+<div>
+    @using (Html.BeginForm("searchJob_click", "Search", FormMethod.Post))
+            {
+                <table style="width:100%; border: 1px solid lightgray; background-color:lightgray;">
+                    <tr>
+                        <td style="width:25%; padding-right:10px;">
+                            @Html.TextBoxFor(m => m.insertse.Job_skills, new {@style= "width:100%;",placeholder="Skills"})
+
+                        </td>
+                        <td  style="width:25%; padding-right:10px;">
+                            @Html.TextBoxFor(m=>m.insertse.Job_Experiance, new {@style="width:100%",placeholder="Experiance"})
+
+                        </td>
+                        <td style="width:25%; padding-right:10px;">
+                            @Html.TextBoxFor(m=>m.insertse.Location,new { @style="width:100%",placeholder="Location"})
+
+                        </td>
+                        <td  style="width:25%; text-align:right;">
+                            <input type="submit" value="Search" class="button" style="background-color:navy; color:white; padding:5px 10px;" />
+                          
+                        </td>
+                    </tr>
+
+                </table>
+            }
+
+    <table class="table w3-container">
+        <tr>
+            <th>
+                <label>Title</label>
+            </th>
+            <th>
+                <label>Description</label>
+            </th>
+            <th>
+                <label>Experiance</label>
+            </th>
+            <th>
+                <label>Skills</label>
+            </th>
+            <th>
+                <label>Location</label>
+            </th>
+            <th>
+                <label>Job Status</label>
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        @foreach(var item in Model.selectjob)
+            {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Experiance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_skills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_status)
+        </td>
+        <td>
+            @Html.ActionLink("ApplyNow", "Application_Load", "AddApplication", new { jid = item.Job_id,cid=item.Company_id },new { @class = "button" })
+        </td>
+    </tr>
+            }
+    </table>
+
+</div>
+

@@ -138,6 +138,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobInsertController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserRegController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -165,6 +166,7 @@
     </Compile>
     <Compile Include="Models\AdminInsert.cs" />
     <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\Jobsearch.cs" />
     <Compile Include="Models\login.cs" />
     <Compile Include="Models\UserInsert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -233,6 +235,7 @@
     <Content Include="Views\Login\AdminHome.cshtml" />
     <Content Include="Views\Login\UserHome.cshtml" />
     <Content Include="Views\JobInsert\Page_Load.cshtml" />
+    <Content Include="Views\Search\Jobview_Pageload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

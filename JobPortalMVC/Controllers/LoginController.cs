@@ -41,7 +41,8 @@ namespace JobPortalMVC.Controllers
                     }
                     else if (type == "User")
                     {
-                        return RedirectToAction("UserHome");
+                        return RedirectToAction("Jobview_Pageload","Search");
+                       // return RedirectToAction("UserHome");
 
                     }
 
@@ -67,8 +68,9 @@ namespace JobPortalMVC.Controllers
         {
             return View();
         }
-        public ActionResult UserHome()
+        public ActionResult UserHome( )
         {
+           // ob.selectjob = dbobj.Job_Tab.ToList();
             return View(dbobj.Job_Tab.ToList());
         }
     }

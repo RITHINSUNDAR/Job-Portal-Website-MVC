@@ -213,5 +213,14 @@ namespace JobPortalMVC
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_JobInsert", aidParameter, tleParameter, desParameter, expParameter, sklParameter, locParameter, stasParameter, startParameter, endParameter);
         }
+    
+        public virtual int sp_jobsearch(string qry)
+        {
+            var qryParameter = qry != null ?
+                new ObjectParameter("qry", qry) :
+                new ObjectParameter("qry", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_jobsearch", qryParameter);
+        }
     }
 }

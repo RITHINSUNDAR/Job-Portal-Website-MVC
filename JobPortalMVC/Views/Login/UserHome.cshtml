@@ -1,4 +1,5 @@
-﻿@model IEnumerable<JobPortalMVC.Job_Tab>
+﻿@model JobPortalMVC.Models.Jobsearch
+@*@model IEnumerable<JobPortalMVC.Job_Tab>*@
 @{
     ViewBag.Title = "UserHome";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,9 +8,35 @@
 <h2>UserHome</h2>
 
 <div>
+
+    @using (Html.BeginForm("searchJob_click", "Search", FormMethod.Post))
+    {
+        <table style="width:100%; border: 1px solid lightgray; background-color:lightgray;">
+            <tr>
+                <td style="width:25%; padding-right:10px;">
+                    @Html.TextBoxFor(m => m.insertse.Job_skills, new { @style = "width:100%;", placeholder = "Skills" })
+
+                </td>
+                <td style="width:25%; padding-right:10px;">
+                    @Html.TextBoxFor(m => m.insertse.Job_Experiance, new { @style = "width:100%", placeholder = "Experiance" })
+
+                </td>
+                <td style="width:25%; padding-right:10px;">
+                    @Html.TextBoxFor(m => m.insertse.Location, new { @style = "width:100%", placeholder = "Location" })
+
+                </td>
+                <td style="width:25%; text-align:right;">
+                    <input type="submit" value="Search" class="button" style="background-color:navy; color:white; padding:5px 10px;" />
+
+                </td>
+            </tr>
+
+        </table>
+    }
+
     <table>
         <tr>
-            <th>@Html.DisplayNameFor(m=>m.Title) </th>
+            <th>@Html.DisplayNameFor(m => m.Title) </th>
 
             <th>@Html.DisplayNameFor(m => m.Description) </th>
 
@@ -22,35 +49,36 @@
             <th>@Html.DisplayNameFor(m => m.End_Date) </th>
             <th></th>
         </tr>
-        @foreach(var item in Model)
-            {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Experiance)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Skills)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Job_Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_Date)
-        </td>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Experiance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skills)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Job_Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.End_Date)
+                </td>
 
-            }
+            </tr>
+
+        }
     </table>
 </div>
